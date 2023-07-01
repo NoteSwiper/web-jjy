@@ -1,5 +1,38 @@
 (function() {
-    var freq = 13333;
+    var freq = 0;
+    function getParam(name, url) {if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"), results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    var p_preset = getParam("preset");
+    var p_freq = getParam("out_frequency");
+    if (p_freq) {
+        if (p_freq > 22000 || p_freq < 10) {
+            freq = p_freq;
+        } else {
+            freq = 1000;
+        }
+    } else if (p_preset) {
+        switch (p_preset) {
+            case "shogo82148":
+                freq = 13333;
+                break;
+            case "jjy":
+                freq = 1000;
+                break;
+            case "low":
+                freq = 500;
+                break;
+            default:
+                freq = 1000;
+                break;
+        }
+    } else {
+        freq = 1000;
+    }
     var ctx;
     var signal;
 
