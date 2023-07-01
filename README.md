@@ -1,5 +1,13 @@
 # web-jjy
 
+> **Note**
+>
+> this repository is fork from [`@shogo82148`]'s [`web-jjy`].
+
+new features have included; 
+
+**below document have original;**
+---
 電波時計の時刻合わせには、標準電波JJYと呼ばれる 時刻に関する情報を送信している電波が使われています。 
 web-jjyは、この電波をブラウザ上で再現し、標準電波が届かない環境でも電波時計の時刻合わせを可能にするWebアプリです。
 
@@ -40,3 +48,7 @@ MITライセンスで提供します。[LICENSE.md](https://github.com/shogo8214
 - [shogo82148/web-jjy](https://github.com/shogo82148/web-jjy)
 - [Webブラウザを使って電波を出してみた](https://shogo82148.github.io/blog/2016/03/29/web-jjy/)
 - [Web JJY が夏時間に対応しました](https://shogo82148.github.io/blog/2018/08/11/web-jjy-summer-time-support/)
+
+
+[`@shogo82148`]: https://github.com/shogo82148
+[`web-jjy`]: https://github.com/shogo82148/web-jjy
