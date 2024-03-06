@@ -1,5 +1,4 @@
 (function() {
-    var freq = 13333;
     function getParam(name, url) {if (!url) url = window.location.href;
         name = name.replace(/[\[\]]/g, "\\$&");
         var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"), results = regex.exec(url);
@@ -7,31 +6,9 @@
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
-    var p_preset = getParam("p");
-    var p_freq = getParam("freq");
-    if (p_freq) {
-        if (p_freq > 22000 || p_freq < 10) {
-            freq = p_freq;
-        }
-    }
-    if (p_preset) {
-        switch (p_preset) {
-            case "origin":
-                freq = 13333;
-                break;
-            case "listen":
-                freq = 1000;
-                break;
-            case "lowtone":
-                freq = 500;
-                break;
-            case "max":
-                freq = 19999;
-                break;
-            default:
-                freq = 1000;
-                break;
-        }
+    var freq = 13333;
+    if (getParam("f")) {
+        freq = getParam("f");
     }
     var ctx;
     var signal;
