@@ -1,5 +1,5 @@
 (function() {
-    var freq = 0;
+    var freq = 13333;
     function getParam(name, url) {if (!url) url = window.location.href;
         name = name.replace(/[\[\]]/g, "\\$&");
         var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"), results = regex.exec(url);
@@ -7,25 +7,26 @@
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
-    var p_preset = getParam("preset");
-    var p_freq = getParam("out_frequency") || 13333;
+    var p_preset = getParam("p");
+    var p_freq = getParam("freq");
     if (p_freq) {
         if (p_freq > 22000 || p_freq < 10) {
             freq = p_freq;
-        } else {
-            freq = 1000;
         }
     }
     if (p_preset) {
         switch (p_preset) {
-            case "shogo82148":
+            case "origin":
                 freq = 13333;
                 break;
-            case "jjy":
+            case "listen":
                 freq = 1000;
                 break;
-            case "low":
+            case "lowtone":
                 freq = 500;
+                break;
+            case "max":
+                freq = 19999;
                 break;
             default:
                 freq = 1000;
