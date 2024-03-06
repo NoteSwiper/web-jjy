@@ -15,7 +15,8 @@
         } else {
             freq = 1000;
         }
-    } else if (p_preset) {
+    }
+    if (p_preset) {
         switch (p_preset) {
             case "shogo82148":
                 freq = 13333;
@@ -30,8 +31,6 @@
                 freq = 1000;
                 break;
         }
-    } else {
-        freq = 1000;
     }
     var ctx;
     var signal;
