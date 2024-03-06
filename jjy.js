@@ -8,7 +8,7 @@
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
     var p_preset = getParam("preset");
-    var p_freq = getParam("out_frequency");
+    var p_freq = getParam("out_frequency") || 13333;
     if (p_freq) {
         if (p_freq > 22000 || p_freq < 10) {
             freq = p_freq;
